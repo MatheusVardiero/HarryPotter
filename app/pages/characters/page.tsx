@@ -119,7 +119,7 @@ const Characters: React.FC = () => {
           {data && 
             data.filter(item => item.house === selectedHouse && item.image).map(chars => (
               <>
-                <Link key={chars.id} href={`/pages/character/${chars.id}`} className="border shadow-md">
+                <Link key={chars.id} href={`/pages/characters/${chars.id}`} className="border shadow-md">
                   <Image
                     className='w-full h-[400px]'
                     width={200}
