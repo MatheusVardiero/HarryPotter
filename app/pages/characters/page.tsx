@@ -2,11 +2,9 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from "next/router";
-
 import { useState, useEffect } from "react";
 
-interface HarryPotterChars {
+export interface HarryPotterChars {
   id: string,
   name: string,
   alternate_names: string[],
@@ -26,22 +24,14 @@ interface HarryPotterChars {
   image: string,
 }
 
-const url = 'https://hp-api.onrender.com/api/characters';
-const options = {
-  method: 'GET'
-};
-
 const Characters: React.FC = () => {
 
+  const url = 'https://hp-api.onrender.com/api/characters';
+  const options = {
+  method: 'GET'
+  };
   const [data, setData] = useState<HarryPotterChars[]>([]);
   const [selectedHouse, setSelectedHouse] = useState<string | null>(null);
-  //const router = useRouter();
-
-  // Função para lidar com o clique em um personagem
-  //const handleCharacterClick = (id: string) => {
-  // Redirecionar para a página do personagem com o ID como parâmetro
-  //router.push(`/character/${id}`);
-  //};
 
   const handleHouseSelection = (house: string) => {
     setSelectedHouse(house);
@@ -121,7 +111,7 @@ const Characters: React.FC = () => {
               <>
                 <Link key={chars.id} href={`/pages/characters/${chars.id}`} className="border shadow-md">
                   <Image
-                    className='w-full h-[400px]'
+                    className='w-full h-[350px]'
                     width={200}
                     height={92}
                     src={chars.image}
